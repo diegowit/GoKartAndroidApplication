@@ -36,6 +36,8 @@
 
     </com.google.android.material.appbar.AppBarLayout>
 
+
+
     <ScrollView
         android:layout_width="0dp"
         android:layout_height="0dp"
@@ -96,6 +98,21 @@
                     android:maxLines="1"
                     android:padding="8dp" />
             </com.google.android.material.textfield.TextInputLayout>
+            <Button
+                android:id="@+id/chooseImage"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="16dp"
+                android:paddingBottom="8dp"
+                android:paddingTop="8dp"
+                android:backgroundTint="?attr/colorSecondary"
+                android:text="@string/button_addImage"/>
+
+            <ImageView
+                android:id="@+id/placemarkImage"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:srcCompat="@mipmap/ic_launcher"/>
 
 
             <Button
@@ -107,6 +124,11 @@
                 android:paddingBottom="12dp"
                 android:backgroundTint="?attr/colorSecondary"
                 android:text="@string/button_addDriver" />
+
+
+
+
+
         </LinearLayout>
     </ScrollView>
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -6,4 +6,5 @@
     <string name="hint_CarModel">Car Model</string>
     <string name="menu_addDriver">Add many</string>
     <string name="menu_cancelDriver">Cancel</string>
+    <string name="button_addImage"> Add Image </string>
 </resources>
