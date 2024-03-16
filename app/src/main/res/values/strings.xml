@@ -2,4 +2,6 @@
     <string name="app_name">GoKart</string>
     <string name="button_addDriver">Add driver</string>
     <string name="hint_DriverName">Driver Name</string>
+    <string name="hint_DriverGender">Driver gender</string>
+    <string name="hint_CarModel">Car Model</string>
 </resources>
