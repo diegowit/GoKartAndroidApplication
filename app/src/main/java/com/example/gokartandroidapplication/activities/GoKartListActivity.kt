@@ -1,9 +1,7 @@
 package com.example.gokartandroidapplication.activities
 
-
 import android.app.Activity
 import android.content.Intent
-import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -17,8 +15,13 @@ import androidx.activity.result.contract.ActivityResultContracts
 import com.example.gokartandroidapplication.R
 import com.example.gokartandroidapplication.main.MainApp
 import com.example.gokartandroidapplication.models.GoKartModel
+import com.google.android.material.snackbar.Snackbar
+import com.example.gokartandroidapplication.adapters.GoKartAdapter
+import com.example.gokartandroidapplication.adapters.GoKartListener
 
-class GoKartListActivity : AppCompatActivity() {
+
+
+class GoKartListActivity : AppCompatActivity(), GoKartListener {
 
     lateinit var app: MainApp
     private lateinit var binding: ActivityGokartlistBinding
@@ -31,7 +34,7 @@ class GoKartListActivity : AppCompatActivity() {
 
         val layoutManager = LinearLayoutManager(this)
         binding.recyclerView.layoutManager = layoutManager
-        binding.recyclerView.adapter = GoKartAdapter(app.gokarts)
+        binding.recyclerView.adapter = GoKartAdapter(app.gokarts.findAll(), this)
         binding.topAppBar.title = title  //Name of the Project
         setSupportActionBar(binding.topAppBar)
 }
@@ -59,39 +62,22 @@ class GoKartListActivity : AppCompatActivity() {
         ) {
             if (it.resultCode == Activity.RESULT_OK) {
                 (binding.recyclerView.adapter)?.
-                notifyItemRangeChanged(0,app.gokarts.size)
+                notifyItemRangeChanged(0,app.gokarts.findAll().size)
+            }
+            if (it.resultCode == Activity.RESULT_CANCELED) {
+                Snackbar.make(binding.root, "Driver Adding process Cancelled", Snackbar.LENGTH_LONG).show()
             }
         }
+
+    override fun onGoKartClick(gokart: GoKartModel) {
+        val launcherIntent = Intent(this, GoKartActivity::class.java)
+        launcherIntent.putExtra("gokart_edit", gokart)
+        getResult.launch(launcherIntent)
+    }
+
 }
 
 
-
-class GoKartAdapter(private var gokarts: ArrayList<GoKartModel>) :
-    RecyclerView.Adapter<GoKartAdapter.MainHolder>() {
-
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MainHolder {
-        val binding = CardGokartBinding
-            .inflate(LayoutInflater.from(parent.context), parent, false)
-
-        return MainHolder(binding)
-    }
-
-    override fun onBindViewHolder(holder: MainHolder, position: Int) {
-        val gokart = gokarts[holder.adapterPosition]
-        holder.bind(gokart)
-    }
-
-    override fun getItemCount(): Int = gokarts.size
-
-    class MainHolder(private val binding : CardGokartBinding) :
-        RecyclerView.ViewHolder(binding.root) {
-
-        fun bind(gokart: GoKartModel) {
-            binding.DriverName.text = gokart.name
-            binding.CarModel.text = gokart.carModel
-        }
-    }
-}
 
 
 
