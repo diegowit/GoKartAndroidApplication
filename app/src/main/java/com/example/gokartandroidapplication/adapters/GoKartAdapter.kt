@@ -7,7 +7,14 @@ import com.example.gokartandroidapplication.databinding.CardGokartBinding
 import com.example.gokartandroidapplication.models.GoKartMemStore
 import com.example.gokartandroidapplication.models.GoKartModel
 
-class GoKartAdapter(private var gokarts: GoKartMemStore) :
+
+interface GoKartListener {
+    fun onGoKartClick(gokart: GoKartModel)
+}
+
+class GoKartAdapter constructor(private var gokarts: List<GoKartModel>,
+                                private val listener: GoKartListener)
+                                :
     RecyclerView.Adapter<GoKartAdapter.MainHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MainHolder {
@@ -19,7 +26,7 @@ class GoKartAdapter(private var gokarts: GoKartMemStore) :
 
     override fun onBindViewHolder(holder: MainHolder, position: Int) {
         val gokart = gokarts[holder.adapterPosition]
-        holder.bind(gokart)
+        holder.bind(gokart, listener)
     }
 
     override fun getItemCount(): Int = gokarts.size
@@ -27,9 +34,10 @@ class GoKartAdapter(private var gokarts: GoKartMemStore) :
     class MainHolder(private val binding : CardGokartBinding) :
         RecyclerView.ViewHolder(binding.root) {
 
-        fun bind(gokart: GoKartModel) {
+        fun bind(gokart: GoKartModel, listener: GoKartListener) {
             binding.DriverName.text = gokart.name
             binding.CarModel.text = gokart.carModel
+            binding.root.setOnClickListener { listener.onGoKartClick(gokart)}
         }
     }
 }

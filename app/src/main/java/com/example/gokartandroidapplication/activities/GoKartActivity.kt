@@ -31,6 +31,15 @@ class GoKartActivity : AppCompatActivity() {
         i("Go kart Activity started...")
 
 
+        if (intent.hasExtra("gokart_edit")) {
+            gokart   = intent.extras?.getParcelable("gokart_edit")!!
+            binding.DriverName.setText(gokart.name)
+            binding.DriverGender.setText(gokart.gender)
+            binding.CarModel.setText(gokart.carModel)
+        }
+
+
+
         binding.btnAdd.setOnClickListener() {
             gokart.name = binding.DriverName.text.toString()
             gokart.carModel = binding.CarModel.text.toString()
