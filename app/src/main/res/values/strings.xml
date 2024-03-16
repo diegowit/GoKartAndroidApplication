@@ -4,4 +4,5 @@
     <string name="hint_DriverName">Driver Name</string>
     <string name="hint_DriverGender">Driver gender</string>
     <string name="hint_CarModel">Car Model</string>
+    <string name="menu_addDriver">Add many</string>
 </resources>
