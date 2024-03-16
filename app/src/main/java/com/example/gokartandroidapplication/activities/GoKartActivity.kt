@@ -40,6 +40,9 @@ class GoKartActivity : AppCompatActivity() {
         }
 
 
+        binding.chooseImage.setOnClickListener {
+            i("Select image")
+        }
 
         binding.btnAdd.setOnClickListener() {
             gokart.name = binding.DriverName.text.toString()
