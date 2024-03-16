@@ -1,3 +1,5 @@
 <resources>
-    <string name="app_name">GoKartAndroidApplication</string>
+    <string name="app_name">GoKart</string>
+    <string name="button_addDriver">Add driver</string>
+    <string name="hint_DriverName">Driver Name</string>
 </resources>
