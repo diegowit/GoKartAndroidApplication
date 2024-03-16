@@ -19,6 +19,7 @@ class GoKartActivity : AppCompatActivity() {
         binding= ActivityGokartBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
+
         Timber.plant(Timber.DebugTree())
         i("Go Kart Activity started..")
 
