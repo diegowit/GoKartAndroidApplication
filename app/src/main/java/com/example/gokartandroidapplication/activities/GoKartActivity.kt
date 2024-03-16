@@ -18,6 +18,7 @@ class GoKartActivity : AppCompatActivity() {
     var gokart = GoKartModel()
     lateinit var app: MainApp
 
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding= ActivityGokartBinding.inflate(layoutInflater)
