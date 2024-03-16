@@ -16,4 +16,5 @@ class MainApp: Application() {
         gokarts.add(GoKartModel("Checo", "Male","Ferrari"))
         gokarts.add(GoKartModel("Verstappen", "Male","Red bull"))
     }
+
 }
