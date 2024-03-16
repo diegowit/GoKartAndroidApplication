@@ -4,9 +4,10 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.example.gokartandroidapplication.databinding.CardGokartBinding
+import com.example.gokartandroidapplication.models.GoKartMemStore
 import com.example.gokartandroidapplication.models.GoKartModel
 
-class GoKartAdapter constructor(private var gokarts: ArrayList<GoKartModel>) :
+class GoKartAdapter(private var gokarts: GoKartMemStore) :
     RecyclerView.Adapter<GoKartAdapter.MainHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MainHolder {

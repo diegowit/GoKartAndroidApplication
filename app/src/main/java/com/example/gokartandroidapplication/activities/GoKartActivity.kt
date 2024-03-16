@@ -36,12 +36,8 @@ class GoKartActivity : AppCompatActivity() {
             gokart.carModel = binding.CarModel.text.toString()
             gokart.gender = binding.DriverGender.text.toString()
             if (gokart.name.isNotEmpty()) {
-                app.gokarts.add(gokart.copy())
-                i("add Button Pressed: ${gokart}")
-                for (i in app.gokarts.indices)
-                {
-                    i("GoKart[$i]:${app.gokarts[i]}")
-                }
+                app.gokarts.create(gokart.copy())
+
                 setResult(RESULT_OK)
                 finish()
             }
