@@ -17,8 +17,11 @@ import com.example.gokartandroidapplication.main.MainApp
 import com.example.gokartandroidapplication.models.GoKartModel
 import com.google.android.material.snackbar.Snackbar
 import com.example.gokartandroidapplication.adapters.GoKartAdapter
+import com.example.gokartandroidapplication.adapters.GoKartListener
 
-class GoKartListActivity : AppCompatActivity() {
+
+
+class GoKartListActivity : AppCompatActivity(), GoKartListener {
 
     lateinit var app: MainApp
     private lateinit var binding: ActivityGokartlistBinding
@@ -31,7 +34,7 @@ class GoKartListActivity : AppCompatActivity() {
 
         val layoutManager = LinearLayoutManager(this)
         binding.recyclerView.layoutManager = layoutManager
-        binding.recyclerView.adapter = GoKartAdapter(app.gokarts)
+        binding.recyclerView.adapter = GoKartAdapter(app.gokarts.findAll(), this)
         binding.topAppBar.title = title  //Name of the Project
         setSupportActionBar(binding.topAppBar)
 }
@@ -59,12 +62,19 @@ class GoKartListActivity : AppCompatActivity() {
         ) {
             if (it.resultCode == Activity.RESULT_OK) {
                 (binding.recyclerView.adapter)?.
-                notifyItemRangeChanged(0,app.gokarts.size)
+                notifyItemRangeChanged(0,app.gokarts.findAll().size)
             }
             if (it.resultCode == Activity.RESULT_CANCELED) {
                 Snackbar.make(binding.root, "Driver Adding process Cancelled", Snackbar.LENGTH_LONG).show()
             }
         }
+
+    override fun onGoKartClick(gokart: GoKartModel) {
+        val launcherIntent = Intent(this, GoKartActivity::class.java)
+        launcherIntent.putExtra("gokart_edit", gokart)
+        getResult.launch(launcherIntent)
+    }
+
 }
 
 
