@@ -1,13 +1,17 @@
 package com.example.gokartandroidapplication.activities
 
+import android.view.Menu
 import com.example.gokartandroidapplication.main.MainApp
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import com.google.android.material.snackbar.Snackbar
 import com.example.gokartandroidapplication.models.GoKartModel
 import com.example.gokartandroidapplication.databinding.ActivityGokartBinding
-import timber.log.Timber
+import android.view.MenuItem
 import timber.log.Timber.i
+import com.example.gokartandroidapplication.R
+
+
 
 class GoKartActivity : AppCompatActivity() {
     private lateinit var binding: ActivityGokartBinding
@@ -19,8 +23,12 @@ class GoKartActivity : AppCompatActivity() {
         binding= ActivityGokartBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
+        binding.topAppBar.title = title
+        setSupportActionBar(binding.topAppBar)
+
+
         app = application as MainApp
-        i("Placemark Activity started...")
+        i("Go kart Activity started...")
 
 
         binding.btnAdd.setOnClickListener() {
@@ -44,4 +52,21 @@ class GoKartActivity : AppCompatActivity() {
             }
         }
     }
+    override fun onCreateOptionsMenu(menu: Menu): Boolean {
+        menuInflater.inflate(R.menu.menu_gokart, menu)
+        return super.onCreateOptionsMenu(menu)
+    }
+
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        when (item.itemId) {
+            R.id.item_cancel -> {
+                setResult(RESULT_CANCELED)
+                finish()
+            }
+        }
+        return super.onOptionsItemSelected(item)
+    }
+
+
 }

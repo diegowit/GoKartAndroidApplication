@@ -5,4 +5,5 @@
     <string name="hint_DriverGender">Driver gender</string>
     <string name="hint_CarModel">Car Model</string>
     <string name="menu_addDriver">Add many</string>
+    <string name="menu_cancelDriver">Cancel</string>
 </resources>

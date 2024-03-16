@@ -1,6 +1,5 @@
 package com.example.gokartandroidapplication.activities
 
-
 import android.app.Activity
 import android.content.Intent
 import android.view.LayoutInflater
@@ -17,6 +16,7 @@ import androidx.activity.result.contract.ActivityResultContracts
 import com.example.gokartandroidapplication.R
 import com.example.gokartandroidapplication.main.MainApp
 import com.example.gokartandroidapplication.models.GoKartModel
+import com.google.android.material.snackbar.Snackbar
 
 class GoKartListActivity : AppCompatActivity() {
 
@@ -61,9 +61,11 @@ class GoKartListActivity : AppCompatActivity() {
                 (binding.recyclerView.adapter)?.
                 notifyItemRangeChanged(0,app.gokarts.size)
             }
+            if (it.resultCode == Activity.RESULT_CANCELED) {
+                Snackbar.make(binding.root, "Driver Adding process Cancelled", Snackbar.LENGTH_LONG).show()
+            }
         }
 }
-
 
 
 class GoKartAdapter(private var gokarts: ArrayList<GoKartModel>) :
