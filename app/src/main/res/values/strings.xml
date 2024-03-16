@@ -30,7 +30,7 @@
     // Success Messages
     <string name="success_drivers_added">Drivers added successfully</string>
     <string name="success_tournament_created">Tournament created successfully</string>
-
+    <string name="tournament_activity_started">Go Kart Activity started…</string>
 
 
 
