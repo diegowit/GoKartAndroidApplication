@@ -13,8 +13,6 @@ class GoKartActivity : AppCompatActivity() {
     private lateinit var binding: ActivityGokartBinding
     var gokart = GoKartModel()
     lateinit var app: MainApp
-    var gokarts = ArrayList<GoKartModel>()
-
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -30,11 +28,11 @@ class GoKartActivity : AppCompatActivity() {
             gokart.carModel = binding.CarModel.text.toString()
             gokart.gender = binding.DriverGender.text.toString()
             if (gokart.name.isNotEmpty()) {
-                app!!.gokarts.add(gokart.copy())
-                i("add Button Pressed: ${gokart.name}")
-                for (i in app!!.gokarts.indices)
+                app.gokarts.add(gokart.copy())
+                i("add Button Pressed: ${gokart}")
+                for (i in app.gokarts.indices)
                 {
-                    i("GoKart[$i]:${app!!.gokarts[i]}")
+                    i("GoKart[$i]:${app.gokarts[i]}")
                 }
                 setResult(RESULT_OK)
                 finish()
