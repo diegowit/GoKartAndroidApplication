@@ -4,7 +4,16 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_height="wrap_content"
+    android:columnCount="2"
+    android:rowCount="2"
+    android:elevation="4dp"
+    android:alignmentMode="alignMargins"
+    android:columnOrderPreserved="false"
+    android:layout_margin="8dp"
+    android:orientation="horizontal"
+    android:useDefaultMargins="true"
+    android:background="#e8d5d3"
     tools:context="com.example.gokartandroidapplication.activities.GoKartListActivity">
 
 
