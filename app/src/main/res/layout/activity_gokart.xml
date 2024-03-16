@@ -126,9 +126,6 @@
                 android:text="@string/button_addDriver" />
 
 
-
-
-
         </LinearLayout>
     </ScrollView>
 </androidx.constraintlayout.widget.ConstraintLayout>

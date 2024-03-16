@@ -8,20 +8,24 @@ import com.google.android.material.snackbar.Snackbar
 import com.example.gokartandroidapplication.models.GoKartModel
 import com.example.gokartandroidapplication.databinding.ActivityGokartBinding
 import android.view.MenuItem
+import androidx.activity.result.ActivityResultLauncher
+import androidx.activity.result.contract.ActivityResultContracts
 import timber.log.Timber.i
 import com.example.gokartandroidapplication.R
-
-
+import com.example.gokartandroidapplication.helpers.showImagePicker
+import android.content.Intent
+import com.squareup.picasso.Picasso
 
 class GoKartActivity : AppCompatActivity() {
     private lateinit var binding: ActivityGokartBinding
     var gokart = GoKartModel()
     lateinit var app: MainApp
+    private lateinit var imageIntentLauncher: ActivityResultLauncher<Intent>
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        binding= ActivityGokartBinding.inflate(layoutInflater)
+        binding = ActivityGokartBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
         binding.topAppBar.title = title
@@ -29,38 +33,51 @@ class GoKartActivity : AppCompatActivity() {
 
 
         app = application as MainApp
-        i("Go kart Activity started...")
+        var edit = false
+
+        i(getString(R.string.gokart_activity_started))
 
 
         if (intent.hasExtra("gokart_edit")) {
-            gokart   = intent.extras?.getParcelable("gokart_edit")!!
+            edit = true
+            gokart = intent.extras?.getParcelable("gokart_edit")!!
             binding.DriverName.setText(gokart.name)
             binding.DriverGender.setText(gokart.gender)
             binding.CarModel.setText(gokart.carModel)
+            binding.btnAdd.text = getString(R.string.save_gokart)
+            Picasso.get()
+                .load(gokart.image)
+                .into(binding.placemarkImage)
         }
 
 
-        binding.chooseImage.setOnClickListener {
-            i("Select image")
-        }
 
         binding.btnAdd.setOnClickListener() {
             gokart.name = binding.DriverName.text.toString()
-            gokart.carModel = binding.CarModel.text.toString()
             gokart.gender = binding.DriverGender.text.toString()
+            gokart.carModel = binding.CarModel.text.toString()
             if (gokart.name.isNotEmpty()) {
-                app.gokarts.create(gokart.copy())
-
+                if (edit) {
+                    app.gokarts.update(gokart.copy())
+                }
+                else{
+                    app.gokarts.create(gokart.copy())
+                }
                 setResult(RESULT_OK)
                 finish()
             }
             else {
-                Snackbar
-                    .make(it,"Please complete all fields", Snackbar.LENGTH_LONG)
-                    .show()
+                Snackbar.make(it, getString(R.string.enter_gokart_title),
+                    Snackbar.LENGTH_LONG).show()
             }
         }
+
+    binding.chooseImage.setOnClickListener {
+        showImagePicker(imageIntentLauncher)
     }
+    registerImagePickerCallback()
+}
+
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
         menuInflater.inflate(R.menu.menu_gokart, menu)
         return super.onCreateOptionsMenu(menu)
@@ -77,5 +94,22 @@ class GoKartActivity : AppCompatActivity() {
         return super.onOptionsItemSelected(item)
     }
 
-
+    private fun registerImagePickerCallback() {
+        imageIntentLauncher =
+            registerForActivityResult(ActivityResultContracts.StartActivityForResult())
+            { result ->
+                when(result.resultCode){
+                    RESULT_OK -> {
+                        if (result.data != null) {
+                            i("Got Result ${result.data!!.data}")
+                            gokart.image = result.data!!.data!!
+                            Picasso.get()
+                                .load(gokart.image)
+                                .into(binding.placemarkImage)
+                        } // end of if
+                    }
+                    RESULT_CANCELED -> { } else -> { }
+                }
+            }
+    }
 }

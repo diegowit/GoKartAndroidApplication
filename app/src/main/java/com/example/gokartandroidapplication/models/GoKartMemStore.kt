@@ -5,9 +5,10 @@ var lastId = 0L
 internal fun getId() = lastId++
 class GoKartMemStore : GoKartStorage {
 
-    private val gokarts = ArrayList<GoKartModel>()
+    val gokarts = ArrayList<GoKartModel>()
 
     override fun create(gokart: GoKartModel) {
+        gokart.id = getId()
         gokarts.add(gokart)
         logAll()
     }

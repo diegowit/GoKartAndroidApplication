@@ -65,7 +65,8 @@ class GoKartListActivity : AppCompatActivity(), GoKartListener {
                 notifyItemRangeChanged(0,app.gokarts.findAll().size)
             }
             if (it.resultCode == Activity.RESULT_CANCELED) {
-                Snackbar.make(binding.root, "Driver Adding process Cancelled", Snackbar.LENGTH_LONG).show()
+                Snackbar.make(binding.root,
+                getString(R.string.gokart_add_cancelled), Snackbar.LENGTH_LONG).show()
             }
         }
 

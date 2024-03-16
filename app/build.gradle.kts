@@ -51,4 +51,6 @@ dependencies {
     androidTestImplementation("androidx.test.espresso:espresso-core:3.5.1")
     // For logging
     implementation ("com.github.ajalt:timberkt:1.5.1")
+    //For Image downloading and caching
+    implementation ("com.squareup.picasso:picasso:2.71828")
 }

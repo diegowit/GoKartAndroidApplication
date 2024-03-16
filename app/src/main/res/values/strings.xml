@@ -1,10 +1,43 @@
 <resources>
-    <string name="app_name">GoKart</string>
+    //Driver
+    <string name="app_name">GoKart Tournament</string>
     <string name="button_addDriver">Add driver</string>
     <string name="hint_DriverName">Driver Name</string>
     <string name="hint_DriverGender">Driver gender</string>
     <string name="hint_CarModel">Car Model</string>
     <string name="menu_addDriver">Add many</string>
     <string name="menu_cancelDriver">Cancel</string>
+    <string name="gokart_activity_started">Go Kart Activity started…</string>
+    <string name="gokart_add_cancelled">Go kart Add Cancelled</string>
+    <string name="enter_gokart_title">Please Enter a Driver name</string>
+    <string name="save_gokart">Save Gokart</string>
     <string name="button_addImage"> Add Image </string>
+    <string name="select_gokart_image">Select driver image</string>
+
+
+    //Tournament
+    <string name="tournament_title">Race Tournament</string>
+    <string name="tournament_description">Join our exciting race tournament!</string>
+    <string name="tournament_date">Tournament Date:</string>
+    <string name="tournament_location">Tournament Location:</string>
+    <string name="tournament_laps">Number of Laps:</string>
+    <string name="button_addT">Add Tournament</string>
+
+    //error Messages
+    <string name="error_no_driver_selected">No drivers selected</string>
+    <string name="error_no_drivers_added">No drivers added to the tournament</string>
+
+    // Success Messages
+    <string name="success_drivers_added">Drivers added successfully</string>
+    <string name="success_tournament_created">Tournament created successfully</string>
+
+
+
+
+
+
+
+
+
+
 </resources>
