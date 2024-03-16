@@ -17,6 +17,7 @@ import com.example.gokartandroidapplication.R
 import com.example.gokartandroidapplication.main.MainApp
 import com.example.gokartandroidapplication.models.GoKartModel
 import com.google.android.material.snackbar.Snackbar
+import com.example.gokartandroidapplication.adapters.GoKartAdapter
 
 class GoKartListActivity : AppCompatActivity() {
 
@@ -68,32 +69,6 @@ class GoKartListActivity : AppCompatActivity() {
 }
 
 
-class GoKartAdapter(private var gokarts: ArrayList<GoKartModel>) :
-    RecyclerView.Adapter<GoKartAdapter.MainHolder>() {
-
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MainHolder {
-        val binding = CardGokartBinding
-            .inflate(LayoutInflater.from(parent.context), parent, false)
-
-        return MainHolder(binding)
-    }
-
-    override fun onBindViewHolder(holder: MainHolder, position: Int) {
-        val gokart = gokarts[holder.adapterPosition]
-        holder.bind(gokart)
-    }
-
-    override fun getItemCount(): Int = gokarts.size
-
-    class MainHolder(private val binding : CardGokartBinding) :
-        RecyclerView.ViewHolder(binding.root) {
-
-        fun bind(gokart: GoKartModel) {
-            binding.DriverName.text = gokart.name
-            binding.CarModel.text = gokart.carModel
-        }
-    }
-}
 
 
 
