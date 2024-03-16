@@ -1,12 +1,12 @@
 package com.example.gokartandroidapplication.models
-
+import com.example.gokartandroidapplication.models.TournamentModel
 import timber.log.Timber
 
-object TournamentMemStore : TournamentStorage {
+class TournamentMemStore : TournamentStorage {
 
-    private val tournaments = ArrayList<TournamentModel>()
+    val tournaments = ArrayList<TournamentModel>()
 
-    private var lastId = 0L
+    var lastId = 0L
 
     private fun getId(): Long {
         lastId++
@@ -22,7 +22,8 @@ object TournamentMemStore : TournamentStorage {
     override fun update(tournament: TournamentModel) {
         val foundTournament = tournaments.find { it.id == tournament.id }
         foundTournament?.apply {
-            name = tournament.name
+            title = tournament.title
+            description = tournament.description
             date = tournament.date
             location = tournament.location
             laps = tournament.laps
@@ -37,3 +38,4 @@ object TournamentMemStore : TournamentStorage {
     override fun findAll(): List<TournamentModel> {
         return tournaments
     }
+}

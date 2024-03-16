@@ -1,4 +1,7 @@
 package com.example.gokartandroidapplication.models
 
-class TournamentStorage {
+interface TournamentStorage {
+    fun findAll(): List<TournamentModel>
+    fun create(tournament: TournamentModel)
+    fun update(tournament: TournamentModel)
 }

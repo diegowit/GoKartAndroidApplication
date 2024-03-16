@@ -1,13 +1,14 @@
 package com.example.gokartandroidapplication.main
 
 import android.app.Application
-import com.example.gokartandroidapplication.models.GoKartModel
 import com.example.gokartandroidapplication.models.GoKartMemStore
+import com.example.gokartandroidapplication.models.TournamentMemStore
 import timber.log.Timber
 import timber.log.Timber.i
 
 class MainApp: Application() {
     val gokarts = GoKartMemStore()
+    val tournaments = TournamentMemStore()
 
     override fun onCreate() {
         super.onCreate()

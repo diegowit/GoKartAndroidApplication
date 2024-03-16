@@ -11,5 +11,5 @@ data class TournamentModel(
     var description: String = "",
     var date: String = "",
     var location: String = "",
-    var laps: Int = 0
+    var laps: String = ""
 ) : Parcelable
