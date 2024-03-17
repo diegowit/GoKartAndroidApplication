@@ -14,6 +14,7 @@ import timber.log.Timber.i
 import com.example.gokartandroidapplication.R
 import com.example.gokartandroidapplication.helpers.showImagePicker
 import android.content.Intent
+import android.net.Uri
 import com.squareup.picasso.Picasso
 
 class GoKartActivity : AppCompatActivity() {
@@ -48,6 +49,9 @@ class GoKartActivity : AppCompatActivity() {
             Picasso.get()
                 .load(gokart.image)
                 .into(binding.placemarkImage)
+            if (gokart.image != Uri.EMPTY) {
+                binding.chooseImage.setText(R.string.change_gokart_image)
+            }
         }
 
 

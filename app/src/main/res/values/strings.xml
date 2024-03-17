@@ -5,7 +5,7 @@
     <string name="hint_DriverName">Driver Name</string>
     <string name="hint_DriverGender">Driver gender</string>
     <string name="hint_CarModel">Car Model</string>
-    <string name="menu_addDriver">Add many</string>
+    <string name="menu_addDriver">Add Driver</string>
     <string name="menu_cancelDriver">Cancel</string>
     <string name="gokart_activity_started">Go Kart Activity started…</string>
     <string name="gokart_add_cancelled">Go kart Add Cancelled</string>
@@ -13,7 +13,7 @@
     <string name="save_gokart">Save Gokart</string>
     <string name="button_addImage"> Add Image </string>
     <string name="select_gokart_image">Select driver image</string>
-
+    <string name="change_gokart_image">Change Gokart image</string>
 
     //Tournament
     <string name="tournament_title">Race Tournament</string>

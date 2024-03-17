@@ -6,6 +6,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.gokartandroidapplication.databinding.CardGokartBinding
 import com.example.gokartandroidapplication.models.GoKartMemStore
 import com.example.gokartandroidapplication.models.GoKartModel
+import com.squareup.picasso.Picasso
 
 
 interface GoKartListener {
@@ -37,6 +38,7 @@ class GoKartAdapter constructor(private var gokarts: List<GoKartModel>,
         fun bind(gokart: GoKartModel, listener: GoKartListener) {
             binding.DriverName.text = gokart.name
             binding.CarModel.text = gokart.carModel
+            Picasso.get().load(gokart.image).resize(200,200).into(binding.imageIcon)
             binding.root.setOnClickListener { listener.onGoKartClick(gokart)}
         }
     }
