@@ -14,6 +14,8 @@
     <string name="button_addImage"> Add Image </string>
     <string name="select_gokart_image">Select driver image</string>
     <string name="change_gokart_image">Change Gokart image</string>
+    <string name="gokart_bornDay">Select Born Day</string>
+
 
     //Tournament
     <string name="tournament_title">Race Tournament</string>
