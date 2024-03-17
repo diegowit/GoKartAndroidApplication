@@ -16,6 +16,7 @@ import com.example.gokartandroidapplication.helpers.showImagePicker
 import android.content.Intent
 import android.net.Uri
 import com.squareup.picasso.Picasso
+import com.example.gokartandroidapplication.activities.DatePickerFragment
 
 class GoKartActivity : AppCompatActivity() {
     private lateinit var binding: ActivityGokartBinding
@@ -88,6 +89,7 @@ class GoKartActivity : AppCompatActivity() {
     }
 
 
+
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         when (item.itemId) {
             R.id.item_cancel -> {
@@ -97,6 +99,7 @@ class GoKartActivity : AppCompatActivity() {
         }
         return super.onOptionsItemSelected(item)
     }
+
 
     private fun registerImagePickerCallback() {
         imageIntentLauncher =
