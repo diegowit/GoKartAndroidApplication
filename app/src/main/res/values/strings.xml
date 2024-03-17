@@ -16,7 +16,9 @@
     <string name="change_gokart_image">Change Gokart image</string>
 
     <string name="pickDate">Select Born Day</string>
+    <string name="textView1">Welcome to the Go karts app!</string>
 
+    <string name="button_location">Set Location</string>
 
 
     //Tournament
@@ -39,11 +41,7 @@
     <string name="tournament_activity_started">Go Kart Activity started…</string>
 
 
-
-
-
-
-
-
-
+    <!-- Map Strings -->
+    <string name="title_activity_map">MapActivity</string>
 </resources>
+
