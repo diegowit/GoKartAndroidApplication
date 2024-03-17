@@ -15,6 +15,7 @@ import com.example.gokartandroidapplication.R
 import com.example.gokartandroidapplication.helpers.showImagePicker
 import android.content.Intent
 import android.net.Uri
+import com.example.gokartandroidapplication.models.Location
 import com.squareup.picasso.Picasso
 import com.example.gokartandroidapplication.activities.DatePickerFragment
 
