@@ -8,4 +8,10 @@
         android:title="@string/menu_cancelDriver"
         app:showAsAction="always" />
 
+    <item
+        android:id="@+id/item_cancel_tournament"
+        android:icon="@android:drawable/ic_menu_close_clear_cancel"
+        android:title="@string/menu_cancelTournament"
+        app:showAsAction="always" />
+
 </menu>

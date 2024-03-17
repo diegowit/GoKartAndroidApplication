@@ -47,9 +47,7 @@ class TournamentActivity : AppCompatActivity() {
             binding.TournamentLaps.setText(tournament.laps)
             binding.TournamentDescription.setText(tournament.description)
             binding.btnAddTournament.text = getString(R.string.success_tournament_created)
-            Picasso.get()
-                .load(tournament.image)
-                .into(binding.placemarkImage)
+
         }
 
 
@@ -76,10 +74,7 @@ class TournamentActivity : AppCompatActivity() {
             }
         }
 
-      // binding.chooseImage.setOnClickListener {
-       //     showImagePicker(imageIntentLauncher)
-      //  }
-       // registerImagePickerCallback()
+
     }
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
@@ -90,7 +85,7 @@ class TournamentActivity : AppCompatActivity() {
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         when (item.itemId) {
-            R.id.item_cancel -> {
+            R.id.item_cancel_tournament -> {
                 setResult(RESULT_CANCELED)
                 finish()
             }
@@ -98,22 +93,5 @@ class TournamentActivity : AppCompatActivity() {
         return super.onOptionsItemSelected(item)
     }
 
-    private fun registerImagePickerCallback() {
-        imageIntentLauncher =
-            registerForActivityResult(ActivityResultContracts.StartActivityForResult())
-            { result ->
-                when(result.resultCode){
-                    RESULT_OK -> {
-                        if (result.data != null) {
-                            Timber.i("Got Result ${result.data!!.data}")
-                            gokart.image = result.data!!.data!!
-                            Picasso.get()
-                                .load(gokart.image)
-                                .into(binding.placemarkImage)
-                        } // end of if
-                    }
-                    RESULT_CANCELED -> { } else -> { }
-                }
-            }
+
     }
-}

@@ -22,11 +22,13 @@
     <string name="tournament_location">Tournament Location:</string>
     <string name="tournament_laps">Number of Laps:</string>
     <string name="button_addT">Add Tournament</string>
+    <string name="menu_addTournament">Add Tournament</string>
+    <string name="menu_cancelTournament">Cancel Tournament</string>
 
     //error Messages
     <string name="error_no_driver_selected">No drivers selected</string>
     <string name="error_no_drivers_added">No drivers added to the tournament</string>
-
+    <string name="tournament_add_cancelled">Tournament Add Cancelled</string>
     // Success Messages
     <string name="success_drivers_added">Drivers added successfully</string>
     <string name="success_tournament_created">Tournament created successfully</string>
