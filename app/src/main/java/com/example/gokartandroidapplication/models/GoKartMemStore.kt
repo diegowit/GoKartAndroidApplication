@@ -8,6 +8,7 @@ class GoKartMemStore : GoKartStorage {
     private val gokarts = ArrayList<GoKartModel>()
 
     override fun create(gokart: GoKartModel) {
+        gokart.id = getId()
         gokarts.add(gokart)
         logAll()
     }

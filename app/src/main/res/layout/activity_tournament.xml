@@ -5,7 +5,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".activities.GoKartActivity">
+    tools:context=".activities.TournamentActivity">
 
 
     <com.google.android.material.appbar.AppBarLayout
@@ -58,10 +58,10 @@
             <com.google.android.material.textfield.TextInputLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="@string/hint_DriverName">
+                android:hint="@string/tournament_description">
 
                 <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/DriverName"
+                    android:id="@+id/TournamentDescription"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:inputType="text"
@@ -73,13 +73,28 @@
             <com.google.android.material.textfield.TextInputLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="@string/hint_DriverGender">
+                android:hint="@string/tournament_location">
 
                 <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/DriverGender"
+                    android:id="@+id/TournamentLocation"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:inputType="text"
+                    android:maxLines="1"
+                    android:padding="8dp" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/tournament_laps">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/TournamentLaps"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="number"
                     android:maxLines="1"
                     android:padding="8dp" />
             </com.google.android.material.textfield.TextInputLayout>
@@ -89,62 +104,42 @@
             <com.google.android.material.textfield.TextInputLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="@string/hint_CarModel">
+                android:hint="@string/tournament_title">
 
                 <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/CarModel"
+                    android:id="@+id/TournamentTitle"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:inputType="text"
+                    android:inputType="number"
                     android:maxLines="1"
                     android:padding="8dp" />
             </com.google.android.material.textfield.TextInputLayout>
 
-            <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/pickDate"
+
+            <com.google.android.material.textfield.TextInputLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:inputType="date"
-                android:maxLines="1"
-                android:padding="8dp" />
+                android:hint="@string/tournament_date">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/TournamentDate"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="number"
+                    android:maxLines="1"
+                    android:padding="8dp" />
+            </com.google.android.material.textfield.TextInputLayout>
 
 
             <Button
-                android:id="@+id/chooseImage"
+                android:id="@+id/btnAddTournament"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_margin="16dp"
-                android:backgroundTint="?attr/colorSecondary"
-                android:paddingTop="8dp"
-                android:paddingBottom="8dp"
-                android:text="@string/button_addImage" />
-
-            <ImageView
-                android:id="@+id/placemarkImage"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:adjustViewBounds="true"
-                android:scaleType="fitCenter"
-            />
-
-            <Button
-                android:id="@+id/placemarkLocation"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_margin="16dp"
-                android:paddingBottom="8dp"
-                android:paddingTop="8dp"
-                android:text="@string/button_location"
-                android:backgroundTint="?attr/colorSecondary" />
-            <Button
-                android:id="@+id/btnAdd"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_margin="16dp"
-                android:backgroundTint="?attr/colorSecondary"
                 android:paddingTop="12dp"
                 android:paddingBottom="12dp"
-                android:text="@string/button_addDriver" />
+                android:backgroundTint="?attr/colorSecondary"
+                android:text="@string/button_addT" />
 
 
         </LinearLayout>
