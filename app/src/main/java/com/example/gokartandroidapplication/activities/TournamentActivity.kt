@@ -20,7 +20,6 @@ class TournamentActivity : AppCompatActivity() {
     private lateinit var binding: ActivityTournamentBinding
     var tournament = TournamentModel()
     lateinit var app: MainApp
-    private lateinit var imageIntentLauncher: ActivityResultLauncher<Intent>
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -78,7 +77,7 @@ class TournamentActivity : AppCompatActivity() {
     }
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
-        menuInflater.inflate(R.menu.menu_gokart, menu)
+        menuInflater.inflate(R.menu.menu_tournament, menu)
         return super.onCreateOptionsMenu(menu)
     }
 

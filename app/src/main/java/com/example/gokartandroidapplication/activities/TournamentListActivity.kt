@@ -42,20 +42,26 @@ class TournamentListActivity : AppCompatActivity(), TournamentListener {
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         when (item.itemId) {
             R.id.item_add_tournament -> {
+
                 val launcherIntent = Intent(this, TournamentActivity::class.java)
                 getResult.launch(launcherIntent)
+                return true
             }
         }
         return super.onOptionsItemSelected(item)
     }
 
     private val getResult =
-        registerForActivityResult(ActivityResultContracts.StartActivityForResult()) { result ->
-            if (result.resultCode == Activity.RESULT_OK) {
-                (binding.recyclerView.adapter as TournamentAdapter).notifyDataSetChanged()
+        registerForActivityResult(
+            ActivityResultContracts.StartActivityForResult()
+        ) {
+            if (it.resultCode == Activity.RESULT_OK) {
+                (binding.recyclerView.adapter)?.
+                notifyItemRangeChanged(0,app.tournaments.findAll().size)
             }
-            if (result.resultCode == Activity.RESULT_CANCELED) {
-                Snackbar.make(binding.root, getString(R.string.tournament_add_cancelled), Snackbar.LENGTH_LONG).show()
+            if (it.resultCode == Activity.RESULT_CANCELED) {
+                Snackbar.make(binding.root,
+                    getString(R.string.tournament_add_cancelled), Snackbar.LENGTH_LONG).show()
             }
         }
 
