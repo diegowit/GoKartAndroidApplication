@@ -16,14 +16,27 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.GoKartAndroidApplication"
         tools:targetApi="31">
-
+        <activity
+            android:name=".activities.ui.login.LoginActivity"
+            android:exported="false"
+            android:label="@string/title_activity_login" />
         <activity
             android:name=".MapActivity"
             android:exported="false"
             android:label="@string/title_activity_map" />
+
         <meta-data
             android:name="com.google.android.geo.API_KEY"
             android:value="AIzaSyBHImCOvM9PnYN4b9gloc_xllZ_dCkMQao" />
+        <activity
+            android:name=".activities.splashScreenActivity"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
         <activity
             android:name=".activities.GoKartMapsActivity"
             android:exported="false"
@@ -42,7 +55,6 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
         <activity
             android:name=".activities.SearchResultsActivity"
             android:exported="false"
@@ -52,17 +64,16 @@
             <intent-filter>
                 <action android:name="android.intent.action.SEARCH" />
             </intent-filter>
+
             <meta-data
                 android:name="android.app.searchable"
                 android:resource="@xml/searchable" />
         </activity>
-
-
-
         <activity
             android:name=".activities.GoKartActivity"
             android:exported="true">
-    </activity>
+
+        </activity>
         <activity
             android:name=".activities.TournamentListActivity"
             android:exported="true">
