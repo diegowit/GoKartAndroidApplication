@@ -1,5 +1,5 @@
 package com.example.gokartandroidapplication.adapters
-
+import com.example.gokartandroidapplication.models.GoKartJSONStore
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
@@ -12,15 +12,17 @@ import com.squareup.picasso.Picasso
 // Interface for handling click events on GoKart items
 interface GoKartListener {
     // Function to be implemented to handle click events
-    fun onGoKartClick(gokart: GoKartModel)
+    fun onGoKartClick(gokart: GoKartModel, position: Int)
 }
 
 // Adapter class for the RecyclerView to display GoKart items
-class GoKartAdapter(
+class GoKartAdapter constructor(
     // List of GoKartModel items to display
     private var gokarts: List<GoKartModel>,
     // Listener for click events on GoKart items
-    private val listener: GoKartListener
+    private val listener: GoKartListener,
+
+
 ) : RecyclerView.Adapter<GoKartAdapter.MainHolder>() {
 
     // Create ViewHolder instances
@@ -32,7 +34,7 @@ class GoKartAdapter(
 
     // Bind data to ViewHolder
     override fun onBindViewHolder(holder: MainHolder, position: Int) {
-        val gokart = gokarts[position]
+        val gokart = gokarts[holder.adapterPosition]
         holder.bind(gokart, listener)
     }
 
@@ -53,7 +55,7 @@ class GoKartAdapter(
             Picasso.get().load(gokart.image).resize(200, 200).into(binding.imageIcon)
 
             // Set click listener to the root view
-            binding.root.setOnClickListener { listener.onGoKartClick(gokart) }
+            binding.root.setOnClickListener { listener.onGoKartClick(gokart,adapterPosition) }
         }
     }
 }
