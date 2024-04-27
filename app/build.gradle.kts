@@ -2,7 +2,7 @@ plugins {
     id("com.android.application")
     id("org.jetbrains.kotlin.android")
     id("kotlin-parcelize")
-
+    id("com.google.android.libraries.mapsplatform.secrets-gradle-plugin") version "2.0.1"
 }
 
 android {
@@ -55,4 +55,6 @@ dependencies {
     implementation ("com.github.ajalt:timberkt:1.5.1")
     //For Image downloading and caching
     implementation ("com.squareup.picasso:picasso:2.71828")
+    //For Json to object conversion and vice versa
+    implementation ("com.google.code.gson:gson:2.10")
 }

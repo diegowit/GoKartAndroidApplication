@@ -8,4 +8,12 @@
         android:title="@string/menu_cancelDriver"
         app:showAsAction="always" />
 
+    <item
+        android:visible="false"
+        android:id="@+id/item_delete"
+        android:icon="@android:drawable/ic_menu_delete"
+        android:title="@string/menu_deleteGokart"
+        app:showAsAction="always" />
+
+
 </menu>
