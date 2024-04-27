@@ -6,6 +6,7 @@ import android.os.Bundle
 import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
 import com.example.gokartandroidapplication.R
+import com.example.gokartandroidapplication.models.GoKartModel
 
 /*code reference: Android Studio Developers
 * Set up the search UI
@@ -14,7 +15,7 @@ import com.example.gokartandroidapplication.R
 *
 * */
 class SearchResultsActivity : AppCompatActivity() {
-
+    var gokarts = mutableListOf<GoKartModel>()
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_search_results)
@@ -28,8 +29,18 @@ class SearchResultsActivity : AppCompatActivity() {
 
     private fun handleIntent(intent: Intent) {
         if (Intent.ACTION_SEARCH == intent.action) {
-            val query = intent.getStringExtra(SearchManager.QUERY)
-            Log.d("SEARCH", "Search query was: $query")
+            val name = intent.getStringExtra(SearchManager.QUERY)
+            Log.d("SEARCH", "Search query was: $name")
+            if (name != null) {
+                findByName(name)
+            }
         }
+
+    }
+
+    private fun findByName(name: String) : GoKartModel? {
+        val foundGoKart: GoKartModel? = gokarts.find { it.name == name }
+        return foundGoKart
     }
 }
+
