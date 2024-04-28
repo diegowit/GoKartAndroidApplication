@@ -60,4 +60,7 @@ dependencies {
     implementation ("com.squareup.picasso:picasso:2.71828")
     //For Json to object conversion and vice versa
     implementation ("com.google.code.gson:gson:2.10")
+
+    implementation ("androidx.core:core-splashscreen:1.0.1")
+
 }

@@ -1,28 +1,27 @@
 package com.example.gokartandroidapplication.adapters
+
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import com.example.gokartandroidapplication.activities.GoKartListActivity
 import com.example.gokartandroidapplication.databinding.CardGokartBinding
 import com.example.gokartandroidapplication.models.GoKartModel
 import com.squareup.picasso.Picasso
 
-
 // Interface for handling click events on GoKart items
-interface GoKartListener {
+interface SearchListener {
     // Function to be implemented to handle click events
-    fun onGoKartClick(gokart: GoKartModel, position: Int)
+    fun onSearchClick(gokart: GoKartModel,  position: Int)
 }
 
 // Adapter class for the RecyclerView to display GoKart items
-class GoKartAdapter(
+class SearchAdapter(
     // List of GoKartModel items to display
     private var gokarts: List<GoKartModel>,
     // Listener for click events on GoKart items
-    private val listener: GoKartListActivity,
+    private val listener: SearchListener,
 
 
-    ) : RecyclerView.Adapter<GoKartAdapter.MainHolder>() {
+    ) : RecyclerView.Adapter<SearchAdapter.MainHolder>() {
 
     // Create ViewHolder instances
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MainHolder {
@@ -45,16 +44,14 @@ class GoKartAdapter(
         RecyclerView.ViewHolder(binding.root) {
 
         // Bind data to views
-        fun bind(gokart: GoKartModel, listener: GoKartListener) {
+        fun bind(gokart: GoKartModel, listener: SearchListener) {
             // Set data to TextViews
             binding.DriverName.text = gokart.name
             binding.CarModel.text = gokart.carModel
 
-            // Load image using Picasso and resize it
-            Picasso.get().load(gokart.image).resize(200, 200).into(binding.imageIcon)
 
             // Set click listener to the root view
-            binding.root.setOnClickListener { listener.onGoKartClick(gokart,adapterPosition) }
+            binding.root.setOnClickListener { listener.onSearchClick(gokart,adapterPosition) }
         }
     }
 }

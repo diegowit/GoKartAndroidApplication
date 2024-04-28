@@ -1,6 +1,7 @@
 package com.example.gokartandroidapplication.activities.ui.login
 
 import android.app.Activity
+import android.content.Intent
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import android.os.Bundle
@@ -12,8 +13,12 @@ import android.view.View
 import android.view.inputmethod.EditorInfo
 import android.widget.EditText
 import android.widget.Toast
+import androidx.core.content.ContextCompat
+import androidx.core.content.ContextCompat.startActivity
 import com.example.gokartandroidapplication.databinding.ActivityLoginBinding
 import com.example.gokartandroidapplication.R
+import com.example.gokartandroidapplication.activities.GoKartActivity
+import com.example.gokartandroidapplication.activities.GoKartListActivity
 
 class LoginActivity : AppCompatActivity() {
 
@@ -40,11 +45,13 @@ class LoginActivity : AppCompatActivity() {
             // disable login button unless both username / password is valid
             login.isEnabled = loginState.isDataValid
 
+
             if (loginState.usernameError != null) {
                 username.error = getString(loginState.usernameError)
             }
             if (loginState.passwordError != null) {
                 password.error = getString(loginState.passwordError)
+
             }
         })
 
@@ -61,8 +68,11 @@ class LoginActivity : AppCompatActivity() {
             setResult(Activity.RESULT_OK)
 
             //Complete and destroy login activity once successful
-            finish()
+            openGoKartListActivity()
+
         })
+
+
 
         username.afterTextChanged {
             loginViewModel.loginDataChanged(
@@ -70,6 +80,8 @@ class LoginActivity : AppCompatActivity() {
                 password.text.toString()
             )
         }
+
+
 
         password.apply {
             afterTextChanged {
@@ -96,7 +108,10 @@ class LoginActivity : AppCompatActivity() {
             }
         }
     }
-
+    private fun openGoKartListActivity() {
+        val intent = Intent(this, GoKartListActivity::class.java)
+        startActivity(intent)
+    }
     private fun updateUiWithUser(model: LoggedInUserView) {
         val welcome = getString(R.string.welcome)
         val displayName = model.displayName
@@ -112,6 +127,7 @@ class LoginActivity : AppCompatActivity() {
         Toast.makeText(applicationContext, errorString, Toast.LENGTH_SHORT).show()
     }
 }
+
 
 /**
  * Extension function to simplify setting an afterTextChanged action to EditText components.
