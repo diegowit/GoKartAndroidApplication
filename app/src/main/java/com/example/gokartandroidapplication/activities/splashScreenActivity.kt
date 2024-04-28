@@ -9,7 +9,10 @@ import android.os.Handler
 import android.os.Looper
 import com.example.gokartandroidapplication.activities.ui.login.LoginActivity
 import com.example.gokartandroidapplication.databinding.ActivitySplashScreenBinding
-
+/*
+* reference: youtube video
+* link: https://www.youtube.com/watch?v=Q0gRqbtFLcw
+* */
 @SuppressLint("CustomSplashScreen")
 class splashScreenActivity : AppCompatActivity() {
     private lateinit var binding: ActivitySplashScreenBinding

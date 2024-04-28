@@ -19,7 +19,11 @@ import com.example.gokartandroidapplication.models.Location
 import com.squareup.picasso.Picasso
 import com.example.gokartandroidapplication.activities.DatePickerFragment
 import androidx.appcompat.widget.SearchView
+import androidx.lifecycle.lifecycleScope
+import kotlinx.coroutines.launch
+
 class GoKartActivity : AppCompatActivity() {
+
 
     private lateinit var binding: ActivityGokartBinding
     private lateinit var mapIntentLauncher: ActivityResultLauncher<Intent>
@@ -44,6 +48,7 @@ class GoKartActivity : AppCompatActivity() {
 
         /***** Logging *****/
         i(getString(R.string.gokart_activity_started))
+
 
         // Check if this activity is opened for editing a GoKartModel
         if (intent.hasExtra("gokart_edit")) {
