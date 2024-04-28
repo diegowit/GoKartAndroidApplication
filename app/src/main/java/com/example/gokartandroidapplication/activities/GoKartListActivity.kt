@@ -5,12 +5,9 @@ import android.app.SearchManager
 import android.content.ComponentName
 import android.content.Context
 import android.content.Intent
-import android.view.ViewGroup
 import androidx.recyclerview.widget.LinearLayoutManager
-import androidx.recyclerview.widget.RecyclerView
 import android.view.MenuItem
 import com.example.gokartandroidapplication.databinding.ActivityGokartlistBinding
-import com.example.gokartandroidapplication.databinding.CardGokartBinding
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.Menu
